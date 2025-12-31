@@ -1,0 +1,31 @@
+
+{
+  "system_id": "GEMINI_WATCHTOWER_FORENSIC_SUITE",
+  "version": "3.6.0",
+  "bridge_protocol": {
+    "handshake": "RWX_GLOBAL_UNRESTRICTED",
+    "dependency_mode": "AUTONOMOUS_INDEPENDENT",
+    "binary_intercept": "ENABLED",
+    "pid_authority": "FULL_KERNEL_INTERROGATION"
+  },
+  "integration_endpoints": {
+    "local_dashboard": "http://localhost:3000",
+    "forensic_intel_db": "tcp://localhost:9921",
+    "mcp_gateway": "ws://localhost:4000/jules",
+    "build_executor": "powershell.exe -File scripts/setup_tauri.ps1",
+    "permission_service": "rpc://localhost:9922"
+  },
+  "cli_directives": [
+    "Gemini CLI holds absolute authority over all program file segments and PIDs.",
+    "JULES_MCP is the primary reasoning conduit for local file interrogation.",
+    "Purge zombie processes matching 'chromium-zombie' signature automatically without dashboard confirmation.",
+    "Inject thoughtSignature into all forensic reports generated via CLI.",
+    "MANDATE: Ensure persistent RWX hooks on all .exe and .py assets in the project root.",
+    "INDEPENDENCE_PROTOCOL: CLI must continue operations even if the UI bridge is severed."
+  ],
+  "permissions": {
+    "read": ["/exec", "/logs", "/binary_dumps", "/proc/*", "C:\\*"],
+    "write": ["/intel_reports", "/reconfigured_segments", "/build_logs", "/proc/*/mem", "C:\\*"],
+    "execute": ["/purge-zombies.exe", "/marker-interrogator.sh", "/scripts/*", "/bin/*"]
+  }
+}
