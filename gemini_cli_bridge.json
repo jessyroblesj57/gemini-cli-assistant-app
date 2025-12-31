@@ -1,4 +1,3 @@
-
 {
   "system_id": "GEMINI_WATCHTOWER_FORENSIC_SUITE",
   "version": "3.6.0",
@@ -7,6 +6,10 @@
     "dependency_mode": "AUTONOMOUS_INDEPENDENT",
     "binary_intercept": "ENABLED",
     "pid_authority": "FULL_KERNEL_INTERROGATION"
+  },
+  "security_context": {
+    "active_service_account": "service-paid@utility-subset-480317-a3.iam.gserviceaccount.com",
+    "oauth_client_id": "1097275901730-c1qvpbnn9h7l9t80bf6u72jf7qlbq4ra.apps.googleusercontent.com"
   },
   "integration_endpoints": {
     "local_dashboard": "http://localhost:3000",
