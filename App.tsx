@@ -11,6 +11,7 @@ import MediaLab from './components/MediaLab';
 import IntelligenceHub from './components/IntelligenceHub';
 import SettingsPanel from './components/SettingsPanel';
 import PythonLab from './components/PythonLab';
+import GrapheneTelemetry from './components/GrapheneTelemetry';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { AppSettings } from './types';
 
@@ -42,7 +43,7 @@ const DEFAULT_SETTINGS: AppSettings = {
 };
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python'>('watchtower');
+  const [activeTab, setActiveTab] = useState<'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python' | 'telemetry'>('watchtower');
   const [sidebarWidth, setSidebarWidth] = useState(260);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [settings, setSettings] = useState<AppSettings>(() => {
@@ -138,6 +139,7 @@ const App: React.FC = () => {
           {activeTab === 'media' && <MediaLab />}
           {activeTab === 'intelligence' && <IntelligenceHub settings={settings} />}
           {activeTab === 'python' && <PythonLab settings={settings} />}
+          {activeTab === 'telemetry' && <GrapheneTelemetry />}
           {activeTab === 'settings' && <SettingsPanel settings={settings} setSettings={setSettings} restoreDefaults={restoreDefaults} />}
         </div>
       </main>
