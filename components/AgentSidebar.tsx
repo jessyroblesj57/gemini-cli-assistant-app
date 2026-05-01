@@ -6,13 +6,13 @@ import {
   Layout, MonitorCheck, FolderTree, Rocket, Link, 
   ShieldAlert, Key, Lock, Settings, BrainCircuit,
   Camera, FileCode, ToggleLeft, ToggleRight, Coins,
-  Radio, Signal
+  Radio, Signal, Glasses
 } from 'lucide-react';
 import { MCPResource, CLICommand, GeminiSession, ProcessInfo } from '../types';
 
 interface Props {
-  activeTab: 'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python';
-  onTabChange: (tab: 'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python') => void;
+  activeTab: 'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python' | 'telemetry';
+  onTabChange: (tab: 'watchtower' | 'intel' | 'wsl' | 'explorer' | 'deploy' | 'bridge' | 'media' | 'intelligence' | 'settings' | 'python' | 'telemetry') => void;
   isCollapsed?: boolean;
 }
 
@@ -62,6 +62,7 @@ const AgentSidebar: React.FC<Props> = ({ activeTab, onTabChange, isCollapsed }) 
           <div className="space-y-0.5">
             <NavButton active={activeTab === 'watchtower'} onClick={() => onTabChange('watchtower')} icon={<Cpu size={14} />} label="Watchtower" collapsed={isCollapsed} />
             <NavButton active={activeTab === 'python'} onClick={() => onTabChange('python')} icon={<FileCode size={14} />} label="Python Lab" collapsed={isCollapsed} />
+            <NavButton active={activeTab === 'telemetry'} onClick={() => onTabChange('telemetry')} icon={<Glasses size={14} />} label="Optic Conduit" collapsed={isCollapsed} />
             <NavButton active={activeTab === 'intelligence'} onClick={() => onTabChange('intelligence')} icon={<BrainCircuit size={14} />} label="AI Core" collapsed={isCollapsed} />
             <NavButton active={activeTab === 'intel'} onClick={() => onTabChange('intel')} icon={<Microscope size={14} />} label="Forensics" collapsed={isCollapsed} />
             <NavButton active={activeTab === 'media'} onClick={() => onTabChange('media')} icon={<Camera size={14} />} label="Media Lab" collapsed={isCollapsed} />

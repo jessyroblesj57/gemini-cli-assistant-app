@@ -76,10 +76,10 @@ const SettingsPanel: React.FC<Props> = ({ settings, setSettings, restoreDefaults
         <div className="lg:col-span-3 flex flex-col gap-4 h-full overflow-hidden">
           <div className="bg-slate-900/30 border border-slate-800 rounded-[2.5rem] p-6 backdrop-blur-sm flex flex-col flex-1 overflow-hidden shadow-2xl">
             <div className="space-y-2">
-              <SectionBtn active={activeSection === 'GENERAL'} onClick={() => setActiveSection('GENERAL'} icon={<Monitor size={18} />} label="General" sub="Host Identity" />
-              <SectionBtn active={activeSection === 'SECURITY'} onClick={() => setActiveSection('SECURITY'} icon={<ShieldAlert size={18} />} label="Authorization" sub="Service Accounts" />
-              <SectionBtn active={activeSection === 'INTELLIGENCE'} onClick={() => setActiveSection('INTELLIGENCE'} icon={<Sparkles size={18} />} label="Intelligence" sub="Model Param" />
-              <SectionBtn active={activeSection === 'INTERFACE'} onClick={() => setActiveSection('INTERFACE'} icon={<Layout size={18} />} label="Interface" sub="HUD / UX" />
+              <SectionBtn active={activeSection === 'GENERAL'} onClick={() => setActiveSection('GENERAL')} icon={<Monitor size={18} />} label="General" sub="Host Identity" />
+              <SectionBtn active={activeSection === 'SECURITY'} onClick={() => setActiveSection('SECURITY')} icon={<ShieldAlert size={18} />} label="Authorization" sub="Service Accounts" />
+              <SectionBtn active={activeSection === 'INTELLIGENCE'} onClick={() => setActiveSection('INTELLIGENCE')} icon={<Sparkles size={18} />} label="Intelligence" sub="Model Param" />
+              <SectionBtn active={activeSection === 'INTERFACE'} onClick={() => setActiveSection('INTERFACE')} icon={<Layout size={18} />} label="Interface" sub="HUD / UX" />
             </div>
           </div>
         </div>
