@@ -34,6 +34,7 @@ class TemplateManager {
 
   private static readonly BLOCK_TAGS = ['{{LOGO}}', '{{BARCODE}}', '{{ITEMS}}'];
   private static readonly DATA_TAGS = ['{{STORE_ID}}', '{{TOTAL}}'];
+  private static logoCache: Uint8Array | null = null;
   
   private static readonly COMMAND_MAP: Record<string, CommandMetadata> = {
     '{{B_ON}}': { name: 'Bold On', bytes: new Uint8Array([0x1B, 0x45, 1]), hex: '1B 45 01', type: 'TOGGLE', pair: '{{B_OFF}}' },
@@ -214,6 +215,7 @@ class TemplateManager {
   }
 
   private static async generateNativeRasterLogo(): Promise<Uint8Array> {
+    if (this.logoCache) return this.logoCache;
     const w = this.DOT_WIDTH;
     const h = 128;
     const bytesPerRow = w / 8;
@@ -237,6 +239,7 @@ class TemplateManager {
     const fullBuffer = new Uint8Array(header.length + raster.length);
     fullBuffer.set(header);
     fullBuffer.set(raster, header.length);
+    this.logoCache = fullBuffer;
     return fullBuffer;
   }
 }
